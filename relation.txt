@@ -1,0 +1,20 @@
+Lärare => Student (ingen direkt relation)
+Lärare => Klass (ingen direkt relation)
+Lärare => Kurs (Många till många)
+
+Student => Lärare (ingen direkt relation)
+Student => Klass (en till många)
+Student => Kurs (Många till många)
+
+Klass => Lärare (Ingen direkt relation)
+Klass => Student (En till många)
+Klass => Kurs (Många till många)
+
+Kurs => Lärare (Många till många)
+Kurs => Student (Många till många)
+Kurs => Klass (Många till många)
+
+Mappningstabeller:
+TeacherCourse
+StudentCourse
+ClassCourse

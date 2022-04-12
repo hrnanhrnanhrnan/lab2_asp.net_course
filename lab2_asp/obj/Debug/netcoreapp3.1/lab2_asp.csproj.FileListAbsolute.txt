@@ -55,4 +55,3 @@ C:\Users\hrnan\source\repos\lab2_asp\lab2_asp\obj\Debug\netcoreapp3.1\lab2_asp.c
 C:\Users\hrnan\source\repos\lab2_asp\lab2_asp\obj\Debug\netcoreapp3.1\lab2_asp.dll
 C:\Users\hrnan\source\repos\lab2_asp\lab2_asp\obj\Debug\netcoreapp3.1\lab2_asp.pdb
 C:\Users\hrnan\source\repos\lab2_asp\lab2_asp\obj\Debug\netcoreapp3.1\lab2_asp.genruntimeconfig.cache
-C:\Users\hrnan\source\repos\lab2_asp\lab2_asp\bin\Debug\netcoreapp3.1\Data.dll.config

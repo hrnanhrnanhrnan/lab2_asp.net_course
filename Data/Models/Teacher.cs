@@ -8,7 +8,5 @@ namespace Data.Models
     {
         public int TeacherId { get; set; }
         public string TeacherName { get; set; }
-        public int CourseId { get; set; }
-        public ICollection<Course> Courses { get; set; }
     }
 }

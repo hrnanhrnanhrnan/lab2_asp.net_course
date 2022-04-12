@@ -10,6 +10,9 @@ namespace Data.Contexts
         public DbSet<Course> Courses { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<ClassCourse> ClassCourses { get; set; }
+        public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<TeacherCourse> TeacherCourses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

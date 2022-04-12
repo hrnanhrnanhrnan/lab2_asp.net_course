@@ -4,11 +4,12 @@ using System.Text;
 
 namespace Data.Models
 {
-    public class Student
+    public class ClassCourse
     {
-        public int StudentId { get; set; }
-        public string StudentName { get; set; }
+        public int ClassCourseId { get; set; }
         public int ClassId { get; set; }
         public Class Class { get; set; }
+        public int CourseId { get; set; }
+        public Course Course { get; set; }
     }
 }
