@@ -3,7 +3,7 @@ Lärare => Klass (ingen direkt relation)
 Lärare => Kurs (Många till många)
 
 Student => Lärare (ingen direkt relation)
-Student => Klass (en till många)
+Student => Klass (många till en)
 Student => Kurs (Många till många)
 
 Klass => Lärare (Ingen direkt relation)

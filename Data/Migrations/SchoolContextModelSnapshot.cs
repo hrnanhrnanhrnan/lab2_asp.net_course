@@ -26,6 +26,7 @@ namespace Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClassName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ClassId");
@@ -63,6 +64,7 @@ namespace Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CourseName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CourseId");
@@ -81,6 +83,7 @@ namespace Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("StudentName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("StudentId");
@@ -120,6 +123,7 @@ namespace Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("TeacherName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TeacherId");
@@ -158,7 +162,7 @@ namespace Data.Migrations
                         .IsRequired();
 
                     b.HasOne("Data.Models.Course", "Course")
-                        .WithMany()
+                        .WithMany("ClassCourses")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -176,7 +180,7 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Models.StudentCourse", b =>
                 {
                     b.HasOne("Data.Models.Course", "Course")
-                        .WithMany()
+                        .WithMany("StudentCourse")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -191,7 +195,7 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Models.TeacherCourse", b =>
                 {
                     b.HasOne("Data.Models.Course", "Course")
-                        .WithMany()
+                        .WithMany("TeacherCourses")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
