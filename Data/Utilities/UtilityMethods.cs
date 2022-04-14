@@ -126,6 +126,7 @@ namespace Data.Utilities
                 context.ClassCourses.Add(new ClassCourse() { Class = context.Classes.FirstOrDefault(c => c.ClassId == 1), Course = context.Courses.FirstOrDefault(c => c.CourseId == 1) });
                 context.ClassCourses.Add(new ClassCourse() { Class = context.Classes.FirstOrDefault(c => c.ClassId == 1), Course = context.Courses.FirstOrDefault(c => c.CourseId == 3) });
                 context.ClassCourses.Add(new ClassCourse() { Class = context.Classes.FirstOrDefault(c => c.ClassId == 3), Course = context.Courses.FirstOrDefault(c => c.CourseId == 2) });
+                context.ClassCourses.Add(new ClassCourse() { Class = context.Classes.FirstOrDefault(c => c.ClassId == 2), Course = context.Courses.FirstOrDefault(c => c.CourseId == 3) });
                 context.SaveChanges();
             }
         }
@@ -149,6 +150,18 @@ namespace Data.Utilities
         {
             using (var context = new SchoolContext())
             {
+                var teacherCourses = new List<TeacherCourse>()
+                {
+                    new TeacherCourse {Course=context.Courses.FirstOrDefault(c => c.CourseName == "Programmering 1"), Teacher=context.Teachers.FirstOrDefault(t => t.TeacherName == "Anas")},
+                    new TeacherCourse {Course=context.Courses.FirstOrDefault(c => c.CourseName == "Programmering 1"), Teacher=context.Teachers.FirstOrDefault(t => t.TeacherName == "Tobias")},
+                    new TeacherCourse {Course=context.Courses.FirstOrDefault(c => c.CourseName == "Matematik B"), Teacher=context.Teachers.FirstOrDefault(t => t.TeacherName == "Reidar")},
+                    new TeacherCourse {Course=context.Courses.FirstOrDefault(c => c.CourseName == "Programmering 2"), Teacher=context.Teachers.FirstOrDefault(t => t.TeacherName == "Reidar")},
+                    new TeacherCourse {Course=context.Courses.FirstOrDefault(c => c.CourseName == "Programmering 2"), Teacher=context.Teachers.FirstOrDefault(t => t.TeacherName == "Tobias")},
+                    new TeacherCourse {Course=context.Courses.FirstOrDefault(c => c.CourseName == "Programmering 2"), Teacher=context.Teachers.FirstOrDefault(t => t.TeacherName == "Anas")},
+                };
+
+                context.TeacherCourses.AddRange(teacherCourses);
+                context.SaveChanges();
             }
         }
     }

@@ -180,7 +180,7 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Models.StudentCourse", b =>
                 {
                     b.HasOne("Data.Models.Course", "Course")
-                        .WithMany("StudentCourse")
+                        .WithMany("StudentCourses")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

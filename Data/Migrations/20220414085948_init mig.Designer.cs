@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20220413094920_init mig")]
+    [Migration("20220414085948_init mig")]
     partial class initmig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -182,7 +182,7 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Models.StudentCourse", b =>
                 {
                     b.HasOne("Data.Models.Course", "Course")
-                        .WithMany("StudentCourse")
+                        .WithMany("StudentCourses")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
