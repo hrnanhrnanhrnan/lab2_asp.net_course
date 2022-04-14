@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Data.Contexts;
-using Data.Models;
-using lab2_asp.UI;
-using Microsoft.EntityFrameworkCore;
+﻿using lab2_asp.UI;
 
 namespace lab2_asp
 {

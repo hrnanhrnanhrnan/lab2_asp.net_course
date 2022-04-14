@@ -3,13 +3,13 @@ using Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Data.Handlers
 {
     public class ModelsHandler
     {
 
+        // method to get and return all the teachers from a specified course
         internal List<Teacher> GetAllTeachersFromCourse(int courseId)
         {
             using (var context = new SchoolContext())
@@ -22,6 +22,7 @@ namespace Data.Handlers
 
         }
 
+        // method to get and return all the students with all its teachers
         internal List<string> GetAllStudentsWithTeachers()
         {
             using (var context = new SchoolContext())
@@ -32,8 +33,9 @@ namespace Data.Handlers
                 
                 return query;
             }
-    }
+        }
 
+        // method to get and return all the students with all the teachers from a specified course
         internal List<string> GetAllStudentsFromCourse(int courseId)
         {
             using (var context = new SchoolContext())
@@ -47,7 +49,8 @@ namespace Data.Handlers
             }
         }
 
-        public void UpdateCourseName(string courseName)
+        // method to update the name of a specified course
+        internal void UpdateCourseName(string courseName)
         {
             using(var context = new SchoolContext())
             {
@@ -65,7 +68,8 @@ namespace Data.Handlers
             }
         }
 
-        public void UpdateTeacherInCourse(int courseId, int teacherIdToAlter, int teacherIdToChangeTo)
+        // method to update the teacher for a specified course
+        internal void UpdateTeacherInCourse(int courseId, int teacherIdToAlter, int teacherIdToChangeTo)
         {
             using (var context = new SchoolContext())
             {

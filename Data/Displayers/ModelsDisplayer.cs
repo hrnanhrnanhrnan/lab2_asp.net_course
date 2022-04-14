@@ -1,8 +1,5 @@
 ﻿using Data.Handlers;
-using Data.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Data.Displayers
 {
@@ -13,6 +10,8 @@ namespace Data.Displayers
         {
             _modelsHandler = new ModelsHandler();
         }
+
+        // method to display all teachers from a specified course by getting all teachers from a specified course from the modelhandler
         public void DisplayAllTeachersFromCourse(string courseName)
         {
             Console.Clear();
@@ -28,6 +27,7 @@ namespace Data.Displayers
             Console.ReadLine();
         }
 
+        // method to display all students with their teachers by getting all students and teachers from the modelhandler
         public void DisplayAllStudentsWithTeachers()
         {
             Console.Clear();
@@ -43,6 +43,7 @@ namespace Data.Displayers
             Console.ReadLine();
         }
 
+        // method to display all students with their teachers from a specified course by getting them from the modelhandler
         public void DisplayAllStudentsWithTeachersFromCourse(string courseName)
         {
             Console.Clear();
@@ -58,6 +59,7 @@ namespace Data.Displayers
             Console.ReadLine();
         }
 
+        // method to update the course name of a specified course by calling the UpdateCourseName method from the modelhandler
         public void UpdateCourseName (string courseName)
         {
             Console.Clear();
@@ -66,6 +68,7 @@ namespace Data.Displayers
             Console.ReadLine();
         }
 
+        // method to update the teacher of a specified course by calling the UpdateTeacherInCourse method from the modelhandler
         public void UpdateTeacherInCourse(int courseId, int teacherIdToAlter, int teacherIdToChangeTo)
         {
             Console.Clear();

@@ -1,15 +1,14 @@
 ﻿using Data.Contexts;
 using Data.Models;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Data.Utilities
 {
     public class UtilityMethods
     {
+        // method to display menu and get the user input as an integer and return the choice if the choice is an integer and matches the input choices
         public static int DisplayMenuAndGetUserChoice (string [] menuOptions)
         {
             while (true)
@@ -27,6 +26,7 @@ namespace Data.Utilities
             }
         }
 
+        // Dummy method to create students
         public static void CreateStudents ()
         {
             using (var context = new SchoolContext())
@@ -71,6 +71,7 @@ namespace Data.Utilities
             }
         }
 
+        // Dummy method to create teachers
         public static void CreateTeachers()
         {
             var teachers = new List<Teacher>()
@@ -86,6 +87,7 @@ namespace Data.Utilities
             }
         }
 
+        // Dummy method to create courses
         public static void CreateCourses ()
         {
             using (var context = new SchoolContext())
@@ -102,6 +104,7 @@ namespace Data.Utilities
 
         }
 
+        // Dummy method to create classes
         public static void CreateClasses()
         {
             var classes = new List<Class>()
@@ -118,6 +121,7 @@ namespace Data.Utilities
             }
         }
 
+        // Dummy method to create rows in the ClassCourses table
         public static void CreateClassCourses()
         {
             using (var context = new SchoolContext())
@@ -131,6 +135,7 @@ namespace Data.Utilities
             }
         }
 
+        // Dummy method to create rows in the StudentCoures table
         public static void CreateStudentCourses()
         {
             using (var context = new SchoolContext())
@@ -146,6 +151,7 @@ namespace Data.Utilities
             }
         }
 
+        // Dummy method to create rows in the teacherCourses table
         public static void CreateTeacherCourses()
         {
             using (var context = new SchoolContext())
