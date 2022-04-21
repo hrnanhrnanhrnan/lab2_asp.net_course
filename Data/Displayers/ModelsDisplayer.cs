@@ -34,7 +34,7 @@ namespace Data.Displayers
 
             var studentsAndTeachers = _modelsHandler.GetAllStudentsWithTeachers();
 
-            Console.WriteLine("Alla lärare med deras elever:");
+            Console.WriteLine("Alla elever med deras lärare:");
             foreach (var studentAndTeacher in studentsAndTeachers)
             {
                 Console.WriteLine(studentAndTeacher);
@@ -50,7 +50,7 @@ namespace Data.Displayers
 
             var studentsAndTeachersFromCourse = _modelsHandler.GetAllStudentsFromCourse(1);
 
-            Console.WriteLine($"Alla lärare med deras elever för kurs {courseName}:");
+            Console.WriteLine($"Alla elever med deras lärare för kurs {courseName}:");
             foreach (var studentAndTeacher in studentsAndTeachersFromCourse)
             {
                 Console.WriteLine(studentAndTeacher);

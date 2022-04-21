@@ -27,11 +27,33 @@ namespace Data.Handlers
         {
             using (var context = new SchoolContext())
             {
+                var listToReturn = new List<string>();
+                var listOfStudents = new List<Student>();
+                var listOfTeachers = new List<Teacher>();
                 var query = context.Students.Join(context.ClassCourses, s => s.ClassId, c => c.ClassId, (s, c) => new { s, c })
                     .Join(context.TeacherCourses, c => c.c.CourseId, s => s.CourseId, (s, course) => new { s, course })
-                    .Join(context.Teachers, c => c.course.TeacherId, t => t.TeacherId, (s, teacher) => $"StudentName: {s.s.s.StudentName}, TeacherName: {teacher.TeacherName}").ToList();
+                    .Join(context.Teachers, c => c.course.TeacherId, t => t.TeacherId, (student, teacher) => new { Student = student.s.s, Teacher = teacher });
+
+
+                foreach (var row in query)
+                {
+                    listOfStudents.Add(row.Student);
+                    listOfTeachers.Add(row.Teacher);
+                }
                 
-                return query;
+                listToReturn.Add("----------------\nStudenter:\n----------------");
+                foreach (var student in listOfStudents.Distinct())
+                {
+                    listToReturn.Add($"Student: {student.StudentName}");
+                }
+
+                listToReturn.Add("----------------\nLärare:\n----------------");
+                foreach (var teacher in listOfTeachers.Distinct())
+                {
+                    listToReturn.Add($"Lärare: {teacher.TeacherName}");
+                }
+
+                return listToReturn;
             }
         }
 
@@ -40,12 +62,34 @@ namespace Data.Handlers
         {
             using (var context = new SchoolContext())
             {
+                var listToReturn = new List<string>();
+                var listOfStudents = new List<Student>();
+                var listOfTeachers = new List<Teacher>();
                 var query = context.StudentCourses.Where(course => course.CourseId == courseId)
-                    .Join(context.Students, i => i.StudentId, o => o.StudentId, (i, o) => new { i, o })
-                    .Join(context.TeacherCourses, i => i.i.CourseId, o => o.CourseId, (i, o) => new { i, o })
-                    .Join(context.Teachers, i => i.o.TeacherId, o => o.TeacherId, (student, teacher) => $"Student: {student.i.o.StudentName}, Teacher: {teacher.TeacherName }").ToList();
+                    .Join(context.Students, o => o.StudentId, i => i.StudentId, (i, o) => new { o, i })
+                    .Join(context.TeacherCourses, o => o.i.CourseId, i => i.CourseId, (o, i) => new { i, o })
+                    .Join(context.Teachers, o => o.i.TeacherId, i => i.TeacherId, (student, teacher) => new {Student=student.o.o, Teacher=teacher });
 
-                return query;
+                foreach (var row in query)
+                {
+                    listOfStudents.Add(row.Student);
+                    listOfTeachers.Add(row.Teacher);
+                }
+
+                listToReturn.Add("----------------\nStudenter:\n----------------");
+                foreach (var student in listOfStudents.Distinct())
+                {
+                    listToReturn.Add($"Student: {student.StudentName}");
+                }
+
+                listToReturn.Add("----------------\nLärare:\n----------------");
+                foreach (var teacher in listOfTeachers.Distinct())
+                {
+                    listToReturn.Add($"Lärare: {teacher.TeacherName}");
+                }
+
+
+                return listToReturn;
             }
         }
 
